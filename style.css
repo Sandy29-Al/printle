@@ -1,4 +1,3 @@
-/* 1. ألوان الموقع */
 :root {
     --main-color: #654078;
     --light-purple: #f6f0f8;
@@ -7,7 +6,6 @@
     --text-color: #333333;
 }
 
-/* 2. إعدادات عامة */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,25 +24,105 @@ body {
 }
 
 /* 3. رأس الموقع */
-.header {
-    background-color: #654078;
-    padding: 15px 30px;
+/* تنسيقات الهيدر الأساسية للشاشات الكبيرة */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #6c426b; /* اللون البنفسجي الخاص بك */
+  color: #fff;
+  direction: rtl;
+  position: relative;
 }
 
-.header-content {
-    display: flex;
-    flex-direction: row;
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-area img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* التنسيقات الخاصة بالموبايل والشاشات الصغيرة */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* إظهار زر القائمة على الموبايل */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: #6c426b;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-    direction: ltr;
-}
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
 
-.logo img {
-    width: 65px;
-    height: 65px;
-    object-fit: contain;
-    display: block;
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  
+  .nav-links.active {
+    max-height: 300px; /* ارتفاع كافي لاحتواء الروابط */
+  }
 }
 
 .brand-name {
@@ -306,7 +384,6 @@ body {
   width: 100%;                   /* عرض الخط من الشاشة */
   opacity: 0.9;                 /* درجة الشفافية ليكون هادئاً */
 }
-/* تصميم قسم من نحن الناعم والبسيط */
 .about-simple {
   padding: 50px 20px;
   display: flex;
@@ -352,7 +429,7 @@ body {
   margin: 0;
 }
 
-/* تجاوب الشاشات الصغيرة */
+
 @media (max-width: 480px) {
   .about-card {
     padding: 25px 20px;
@@ -360,4 +437,26 @@ body {
   .about-card h2 {
     font-size: 1.35rem;
   }
+}
+
+header ul, .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px; 
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+header ul li a, .nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  transition: opacity 0.2s;
+}
+
+header ul li a:hover {
+  opacity: 0.8;
 }
